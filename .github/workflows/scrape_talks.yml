@@ -4,11 +4,14 @@ permissions:
   contents: write
 
 on:
+  workflow_dispatch: {}
   push:
+    branches: [ main ]
     paths:
       - 'talks/**'
       - '_talks/**'
       - 'talkmap.ipynb'
+      - '.github/workflows/scrape_talks.yml'
 
 jobs:
   build:
