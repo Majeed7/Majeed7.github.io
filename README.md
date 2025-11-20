@@ -1,4 +1,37 @@
-# Academic Pages
+# Majid Mohammadi Academic Website
+This repository hosts Majid Mohammadi's academic website, built from the Academic Pages Jekyll template.
+
+## Quick Customize Checklist
+- Set name, bio, links in `_config.yml`.
+- Edit landing content in `_pages/about.md`.
+- Add markdown items to `_publications/`, `_talks/`, `_teaching/`, `_portfolio/`.
+- Add `files/cv.pdf` and other PDFs.
+- Replace `images/profile.png` with a professional photo.
+
+## Local Preview (macOS)
+```bash
+brew install ruby node # if not installed
+gem install bundler
+bundle install
+bundle exec jekyll serve -l -H localhost
+```
+Open http://localhost:4000. Restart if `_config.yml` changes.
+
+## Docker
+```bash
+docker compose up --build
+```
+Visit http://localhost:4000.
+
+## Upstream Sync (optional)
+```bash
+git remote add upstream https://github.com/academicpages/academicpages.github.io.git
+git fetch upstream
+# cherry-pick desired commits
+```
+
+---
+# Academic Pages (template reference)
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 
 ![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
@@ -83,7 +116,6 @@ If you have bugfixes and enhancements that you would like to submit as a pull re
 
 Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
 
----
 <div align="center">
     
 ![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
