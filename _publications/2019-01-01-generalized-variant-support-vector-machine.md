@@ -3,7 +3,7 @@ title: "Generalized variant support vector machine"
 collection: publications
 type: manuscripts
 permalink: /publications/generalized-variant-support-vector-machine
-venue: IEEE Transactions on Systems, Man, and Cybernetics: Systems
+venue: "IEEE Transactions on Systems, Man, and Cybernetics: Systems"
 date: 2019-01-01
 year: 2019
 citation: |
