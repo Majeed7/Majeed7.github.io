@@ -55,12 +55,14 @@ def build_markdown(entry, collection):
     venue = entry.get('journal') or entry.get('booktitle') or ''
     citation = f"{', '.join(authors)}. {title}. {venue} {year}.".strip()
 
+    # Escape internal quotes in venue
+    safe_venue = venue.replace('"', "'")
     front_matter = {
         'title': f'"{title}"',
         'collection': 'publications',
         'type': collection,
         'permalink': f"/publications/{slugify(title)}",
-        'venue': venue,
+        'venue': f'"{safe_venue}"' if safe_venue else '""',
         'date': f"{year}-01-01" if year else datetime.utcnow().strftime('%Y-%m-%d'),
         'year': year,
         # citation will be added as block scalar to avoid YAML parse issues with colons
