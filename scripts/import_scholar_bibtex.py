@@ -63,7 +63,7 @@ def build_markdown(entry, collection):
         'venue': venue,
         'date': f"{year}-01-01" if year else datetime.utcnow().strftime('%Y-%m-%d'),
         'year': year,
-        'citation': citation,
+        # citation will be added as block scalar to avoid YAML parse issues with colons
     }
     if doi:
         front_matter['doi'] = doi
@@ -73,6 +73,10 @@ def build_markdown(entry, collection):
     fm_lines = ['---']
     for k, v in front_matter.items():
         fm_lines.append(f"{k}: {v}")
+    # Add citation as block scalar to safely include colons/unicode
+    fm_lines.append("citation: |")
+    for line in citation.split('\n'):
+        fm_lines.append(f"  {line}")
     fm_lines.append('---\n')
     body = []
     body.append(title)
