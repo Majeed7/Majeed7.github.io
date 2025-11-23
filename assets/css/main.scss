@@ -263,3 +263,10 @@
   margin-bottom: 0.35rem;
   line-height: 1.5;
 }
+
+/* Avatar shape override: make profile image rectangular instead of circular */
+.author__avatar img,
+img.author__avatar {
+  border-radius: 0 !important; /* remove rounding */
+  overflow: visible; /* ensure full rectangular display */
+}
