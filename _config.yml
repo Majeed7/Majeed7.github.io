@@ -27,6 +27,7 @@ author:
   name             : "Majid Mohammadi"
   pronouns         : # example: "he/him", "she/her", "they/them" (optional)
   bio              : "Postdoctoral researcher in interpretable machine learning, decision-making, and AI for scientific discovery."
+  bio              : "Senior Researcher in Safe and Trustworthy AI in Proteomics."
   # Expanded biography
   # NOTE: Keep this concise; HTML anchors allowed and rendered safely inside sidebar paragraph.
   bio_extended     : "Senior researcher at Utrecht University, affiliated with <a href='https://www.uu.nl/en/research/ai-data-science/ai-technology-for-life'>AI Technology for Life</a> and <a href='https://www.uu.nl/en/research/biomolecular-mass-spectrometry-and-proteomics'>Biomolecular Mass Spectrometry and Proteomics</a>. Previously postdoctoral researcher at Eindhoven University of Technology and Vrije Universiteit Amsterdam. Earned PhD in the Netherlands (awarded <em>cum laude</em>, the highest distinction in Dutch academia)."
