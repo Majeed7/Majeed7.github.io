@@ -70,26 +70,6 @@ experience:
 
 <div class="cv">
 	<section class="cv-section">
-		<h2 class="cv-section-title">Education</h2>
-		<div class="cv-grid">
-			{% for item in page.education %}
-				<article class="cv-card">
-					<header class="cv-card-header">
-						<h3 class="cv-card-title">{{ item.institution }}</h3>
-						<div class="cv-card-meta">{{ item.credential }} &middot; {{ item.years }}</div>
-						<div class="cv-card-submeta">{{ item.location }}</div>
-					</header>
-					<ul class="cv-points">
-						{% for detail in item.details %}
-							<li>{{ detail }}</li>
-						{% endfor %}
-					</ul>
-				</article>
-			{% endfor %}
-		</div>
-	</section>
-
-	<section class="cv-section">
 		<h2 class="cv-section-title">Professional Experience</h2>
 		<div class="cv-grid">
 			{% for role in page.experience %}
@@ -102,6 +82,26 @@ experience:
 					<ul class="cv-points">
 						{% for bullet in role.bullets %}
 							<li>{{ bullet }}</li>
+						{% endfor %}
+					</ul>
+				</article>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="cv-section">
+		<h2 class="cv-section-title">Education</h2>
+		<div class="cv-grid">
+			{% for item in page.education %}
+				<article class="cv-card">
+					<header class="cv-card-header">
+						<h3 class="cv-card-title">{{ item.institution }}</h3>
+						<div class="cv-card-meta">{{ item.credential }} &middot; {{ item.years }}</div>
+						<div class="cv-card-submeta">{{ item.location }}</div>
+					</header>
+					<ul class="cv-points">
+						{% for detail in item.details %}
+							<li>{{ detail }}</li>
 						{% endfor %}
 					</ul>
 				</article>
