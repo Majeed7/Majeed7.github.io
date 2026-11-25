@@ -47,7 +47,7 @@
 {% endif %}
 
 {% if seo_url %}
-  <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
+  <link rel="canonical" href="{{ page.canonical_url | default: page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
 {% if site.twitter.username %}
