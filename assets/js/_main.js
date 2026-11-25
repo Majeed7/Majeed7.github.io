@@ -19,15 +19,13 @@ let determineComputedTheme = () => {
   return (userPref && userPref("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
 };
 
-// Default to the light theme regardless of the OS/browser dark-mode setting;
-// visitors can still switch with the theme toggle (their choice is remembered).
+// Always use the light theme, regardless of the OS/browser dark-mode setting.
 const browserPref = 'light';
 
 // Set the theme on page load or when explicitly called
 let setTheme = (theme) => {
   const use_theme =
     theme ||
-    localStorage.getItem("theme") ||
     $("html").attr("data-theme") ||
     browserPref;
 
@@ -91,7 +89,9 @@ $(document).ready(function () {
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
-  // Light theme unless the visitor chose otherwise via the toggle
+  // The site has no theme toggle any more: clear any old saved choice
+  // (from when it did) and always use the light theme.
+  try { localStorage.removeItem("theme"); } catch (e) {}
   setTheme();
 
   // Enable the theme toggle
