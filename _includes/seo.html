@@ -6,7 +6,9 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if page.title %}
+{% if page.seo_title %}
+  {% assign seo_title = page.seo_title %}
+{% elsif page.title %}
   {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
 {% endif %}
 
@@ -89,10 +91,23 @@
 {% if site.social %}
   <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
+      "@context" : "https://schema.org",
+      "@type" : "Person",
       "name" : "{{ site.social.name | default: site.name }}",
-      "url" : {{ seo_url | jsonify }},
+      "url" : {{ seo_url | append: "/" | jsonify }},
+      "image" : {{ site.author.avatar | prepend: "/images/" | prepend: seo_url | jsonify }},
+      "jobTitle" : "Assistant Professor in Medical Statistics",
+      "worksFor" : {
+        "@type" : "Organization",
+        "name" : "Leiden University Medical Center",
+        "alternateName" : "LUMC",
+        "url" : "https://www.lumc.nl",
+        "address" : { "@type" : "PostalAddress", "addressLocality" : "Leiden", "addressCountry" : "NL" }
+      },
+      "alumniOf" : [
+        { "@type" : "CollegeOrUniversity", "name" : "Delft University of Technology" }
+      ],
+      "knowsAbout" : ["Trustworthy AI", "Artificial intelligence", "Machine learning", "Explainable AI", "Shapley values", "Uncertainty quantification", "Medical statistics", "Proteomics"],
       "sameAs" : {{ site.social.links | jsonify }}
     }
   </script>
@@ -115,12 +130,12 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="{{ site.locale | default: "en" }}">
 <meta property="og:site_name" content="{{ site.title }}"> 
-<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+<meta property="og:title" content="{{ page.seo_title | default: page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 {% if page.date %}
   <meta property="og:type" content="article">
 {% endif %}
-{% if page.excerpt %}
-  <meta property="og:description" name="description" content="{{ seo_description }}">
+{% if seo_description %}
+  <meta property="og:description" content="{{ seo_description }}">
 {% elsif site.og_description %}
   <meta property="og:description" name="description" content="{{ site.og_description }}">
 {% endif %}
@@ -143,5 +158,7 @@
   <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% else %}
+  <meta property="og:image" content="{{ site.author.avatar | prepend: "/images/" | prepend: seo_url }}">
 {% endif %}
 <!-- end Open Graph protocol -->

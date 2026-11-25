@@ -12,7 +12,7 @@ site_theme               : "default" # Currently available options are "default"
 title                    : "Majid Mohammadi"
 title_separator          : "-"
 name                     : &name "Majid Mohammadi"
-description              : &description "Majid Mohammadi's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Majid Mohammadi, Assistant Professor in Medical Statistics at Leiden University Medical Center (LUMC), Leiden. Research on trustworthy AI, explainable machine learning and Shapley values."   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://majeed7.github.io # The base hostname & protocol for your site
                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # blank for user site (repository named <username>.github.io)
@@ -151,6 +151,12 @@ social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
+    - "https://scholar.google.com/citations?user=7oVmQIYAAAAJ"
+    - "https://orcid.org/0000-0002-7131-8724"
+    - "https://github.com/Majeed7"
+    - "https://www.linkedin.com/in/majid-mohammadi-aa17323a"
+    - "https://www.researchgate.net/profile/Majid-Mohammadi-6"
+    - "https://twitter.com/MajidMo80592063"
 
 
 # Analytics
